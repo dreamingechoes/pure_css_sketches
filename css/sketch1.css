@@ -1,0 +1,55 @@
+html, body {
+  height: 100%;
+}
+body {
+  overflow: hidden;
+  margin: 0;
+  perspective: 82.5em;
+  perspective-origin: 50% calc(50% - 60em);
+  background: #f57f7f;
+}
+.element {
+  transform: rotateY(-45deg);
+  animation: rot 9s ease-in-out infinite;
+}
+.element, .element *, .element:before {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform-style: preserve-3d;
+}
+.side {
+  margin: -5em -1.25em;
+  border: solid 1px;
+  width: 2.5em;
+  height: 10em;
+  backface-visibility: hidden;
+  background: linear-gradient(#000000 1px, #0a89ab 1px) 0 0 / 2.5em 2.5em;
+}
+.side:nth-child(1) {
+  transform: rotateY(0deg) translateZ(1.25em);
+}
+.side:nth-child(2) {
+  transform: rotateY(90deg) translateZ(1.25em);
+}
+.side:nth-child(3) {
+  transform: rotateY(180deg) translateZ(1.25em);
+}
+.side:nth-child(4) {
+  transform: rotateY(270deg) translateZ(1.25em);
+}
+.side:nth-child(5) {
+  transform: rotateX(90deg) translateZ(5em);
+}
+.side:nth-child(6) {
+  transform: rotateX(-90deg) translateZ(5em);
+}
+.side:nth-last-child(-n + 2) {
+  margin-top: -1.25em;
+  height: 2.5em;
+}
+@keyframes rot {
+  to {
+    transform: rotateY(315deg);
+  }
+}
